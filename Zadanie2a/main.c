@@ -19,11 +19,25 @@ int main(void)
 	
 						
 	// AnsiToOem(tt, buf); // u mnie to te¿ dzia³a
+	printf("polskie czcionki bez CharToOemA: %s\n\n", "¹æê³ñóœ¿Ÿ");
+	//printf_s(tt); //tekst przed przekszta³ceniem - a tak naprawdê nie bêdzie to dzia³a³o!!!
+	printf("dla printf: %s", buf); //dzia³a "niebezpiecznie", znak % jest pomijany
+	printf("a teraz tylko lancuch formatujacy: "); // tu nie dawaæ polskich czcionek, bo bêdzie jak na pocz¹tku
+	printf(buf); // zadzia³a jak wy¿ej
+	// printf_s(buf); //wyprowadzenie na ekran - nie bêdzie dzia³a³o
+	printf_s("dla printf_s: %s", buf); //tak jest bardziej profesjonalnie, dowcip nie dzia³a, samotne % jest traktowane jako zwyk³y znak
+	// a tutaj sam ³añcuch formatuj¹cy
+	printf("abc %% dla printf\n"); //dzia³a dobrze
+	//printf("abc % ccc\n"); // dzia³a Ÿle, nie kompiluje siê
+	//printf("abc \% ccc\n"); // dzia³a Ÿle, nie kompiluje siê
+	printf_s("abc %% dla printf_s\n");
+	//printf_s("abc % ccc\n"); // nie zadzia³a
+	//printf_s("abc \% ccc\n"); // nie zadzia³a
 
-	// printf_s(tt); //wyprowadzenie na ekran pokazuje tekst przed przekszta³ceniem
-	printf(buf); //wyprowadzenie na ekran
-	printf_s(buf); //wyprowadzenie na ekran
-	// printf_s("%s", buf); //tak jest bardziej profesjonalnie, dowcip nie dzia³a
+
+
+
+
 
 	//------------------
 	
